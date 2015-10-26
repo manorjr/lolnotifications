@@ -20,6 +20,13 @@ const API_KEY = 'ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
 
 const MY_ID = '37766425';
 
+use Silex\Application;
+use Lolnot\MyFactory;
+
+$a = require_once __DIR__.'/vendor/autoload.php';
+$app = new Application();
+$factory = new MyFactory();
+
 var_dump('here!');exit();
 
 $link = mysqli_connect('localhost', 'root', '');
