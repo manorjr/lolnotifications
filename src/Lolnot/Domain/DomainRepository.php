@@ -2,7 +2,9 @@
 
 namespace Lolnot\Domain;
 
-interface DomainRepository
+interface DomainRepository extends ReaderRepository, WritterRepository
 {
+    public function fetchAll(/*DomainObject*/ $object);
+
     public function persist(/*DomainObject*/ $object);
 }

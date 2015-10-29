@@ -24,12 +24,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-use Silex\Application;
-use Lolnot\MyFactory;
-
-$a = require_once __DIR__.'/vendor/autoload.php';
-$app = new Application();
-$factory = new MyFactory();
+$app = require_once __DIR__.'/app/app.php';
+$app->run();
+var_dump('end');exit();
 
 $link = mysqli_connect('localhost', 'root', '');
 if (!$link) {
