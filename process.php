@@ -25,7 +25,7 @@ while($row = $result->fetch_assoc()){
         $to      = $row['email'];
         $subject = 'LOL Notifications';
         $headers = 'From: notifications@lol.com';
-        $message = $response->$row['name'] . 'Is playing right now';
+        $message = $row['name'] . 'Is playing right now';
         mail($to, $subject, $message, $headers);
     }
 }
