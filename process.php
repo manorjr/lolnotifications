@@ -18,20 +18,6 @@ if(!$result = $db->query($sql)){
     die('There was an error running the query [' . $db->error . ']');
 }
 
-
-$request = 'https://euw.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/23560657?api_key=ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
-
-$response = json_decode(file_get_contents($request));
-var_dump($response);exit;
-
-	$to      = $row['email'];
-	$subject = 'LOL Notifications';
-	$headers = 'From: notifications@lol.com';
-	$message = $response->$row['name']->name . 'Is playing right now';
-	mail($to, $subject, $message, $headers);
-
-
-
 while($row = $result->fetch_assoc()){
     $request = 'https://euw.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/' . $row['summoner_id'] . '?api_key=ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
     $response = json_decode(file_get_contents($request));
@@ -39,7 +25,7 @@ while($row = $result->fetch_assoc()){
         $to      = $row['email'];
         $subject = 'LOL Notifications';
         $headers = 'From: notifications@lol.com';
-        $message = $response->$row['name']->name . 'Is playing right now';
+        $message = $response->$row['name'] . 'Is playing right now';
         mail($to, $subject, $message, $headers);
     }
 }
