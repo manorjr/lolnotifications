@@ -20,6 +20,7 @@ if(!$result = $db->query($sql)){
 
 
 $request = 'https://euw.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/23560657?api_key=ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
+
 $response = json_decode(file_get_contents($request));
 var_dump($response);exit;
 
