@@ -4,7 +4,7 @@ namespace Lolnot\Application\Service;
 
 use Lolnot\Application\Service;
 
-class SignUpUser implements Service
+class SignUpUser implements ApplicationService
 {
     public function execute();
 }

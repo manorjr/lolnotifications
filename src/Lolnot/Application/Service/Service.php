@@ -2,7 +2,7 @@
 
 namespace Lolnot\Application\Service;
 
-interface Service
+interface ApplicationService
 {
     public function execute();
 }
