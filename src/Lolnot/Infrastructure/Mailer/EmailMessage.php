@@ -7,10 +7,10 @@ use Lolnot\Application\Message;
 class EmailMessage implements Message
 {
 
-    private $to;
-    private $from;
-    private $subject;
-    private $body;
+    public $to;
+    public $from;
+    public $subject;
+    public $body;
 
     public function __construct($to, $from, $subject, $body)
     {
