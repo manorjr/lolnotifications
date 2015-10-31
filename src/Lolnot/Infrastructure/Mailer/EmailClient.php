@@ -17,8 +17,8 @@ class EmailClient implements Mailer
 	 */
     public function send(Message $message)
     {
-        $headers = "From: {$message->from()}";
+        $headers = "From: {$message->from}";
 
-        return mail($message->to(), $message->subject(), $message->body(), $headers);
+        return mail($message->to, $message->subject, $message->body, $headers);
     }
 }
