@@ -4,5 +4,5 @@ namespace Lolnot\Domain\Notification;
 
 interface NotificationFactory
 {
-    public function create($subscribedUserEmail, $summonerId);
+	public function createFromMessage($message);
 }

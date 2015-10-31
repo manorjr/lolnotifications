@@ -8,9 +8,17 @@ use Lolnot\Application\Message;
 // SMTPEmailClient
 class EmailClient implements Mailer
 {
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see \Lolnot\Infrastructure\Mailer\Mailer::send()
+	 * 
+	 * @return bool true if the mail was successfully accepted for delivery, false otherwise.
+	 */
     public function send(Message $message)
     {
-        // $headers = 'From: manor@lol.com';
-        // mail($to, $subject, $message, $headers);
+        $headers = "From: {$message->from()}";
+
+        return mail($message->to(), $message->subject(), $message->body(), $headers);
     }
 }

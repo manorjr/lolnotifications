@@ -2,11 +2,14 @@
 
 namespace Lolnot\Domain\CurrentGame;
 
-use Lolnot\Domain\ReaderRepository;
-
-interface CurrentGameRepository extends ReaderRepository
+interface CurrentGameRepository
 {
-    public function fetchAll($object);
-
+	/**
+	 * Fetches the current game for given summoner id.
+	 * 
+	 * @param int $summonerId
+	 * 
+	 * @return CurrentGame|null
+	 */
     public function fetchBySummonerId($summonerId);
 }
