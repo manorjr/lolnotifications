@@ -12,7 +12,14 @@ class LolApiCurrentGameRepository implements CurrentGameRepository
     public function fetchBySummonerId($summonerId)
     {
         $request = 'https://euw.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/' . $summonerId . '?api_key=ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
-        $currentGameInfo = json_decode(file_get_contents($request));
+        
+        if (($content = file_get_contents($request)) === false) {
+        	return null;
+        }
+        
+        if (($currentGameInfo = json_decode($content)) === null ) {
+        	return null;
+        }
 
         // Map it to CurrentGame object.
         $currentGame = new CurrentGame();
