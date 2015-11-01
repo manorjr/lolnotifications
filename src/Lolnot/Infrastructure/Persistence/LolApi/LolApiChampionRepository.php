@@ -10,6 +10,7 @@ class LolApiChampionRepository implements ChampionRepository
 {
 	public function fetchAll()
 	{
+		sleep(2);
 		$request = 'https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?champData=info&api_key=ae8ea5ed-97ca-45b7-803b-6ef3786d6cbc';
 		
 		if (($content = file_get_contents($request)) === false) {
