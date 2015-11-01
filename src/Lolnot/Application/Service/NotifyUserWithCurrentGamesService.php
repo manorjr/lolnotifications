@@ -79,13 +79,14 @@ class NotifyUserWithCurrentGamesService implements ApplicationService
             // TODO move to view
             $participant = $currentGame->getParticipants()->filterBySummonerId($subscription->getSummonerId());
 			$championName = $this->championRepository->fetchNameById($participant->getChampionId());
-            
-			$micro     = (string)$currentGame->getGameStartTime()/1000;
-			$startedOn = date('d/M/Y H:i:s', $micro);
+
+			//$micro     = (string)$currentGame->getGameStartTime()/1000;
+			//$startedOn = date('d/M/Y H:i:s', $micro);
+
             $subject   = "{$participant->getSummonerName()} in game #{$currentGame->getGameId()}";
 
-            $body  = "Partida empezada el {$startedOn}<br> ";
-            $body .= "El tonto esta jugando {$currentGame->getGameMode()} con {$championName}";
+            //$body  = "Partida empezada el {$startedOn}<br> ";
+            $body = "El tonto esta jugando {$currentGame->getGameMode()} con {$championName}";
 
             $message = new EmailMessage(
             		$subscription->getUserEmail(),
