@@ -14,6 +14,3 @@ $mailer                 = new EmailClient();
 $service = new NotifyUserWithCurrentGamesService($subscriptionRepository, $currentGameRepository, $mailer);
 
 $currentGames = $service->execute();
-
-
-

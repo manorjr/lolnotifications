@@ -8,7 +8,7 @@ use Lolnot\Application\Message;
 // SMTPEmailClient
 class EmailClient implements Mailer
 {
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see \Lolnot\Infrastructure\Mailer\Mailer::send()

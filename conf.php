@@ -12,3 +12,6 @@ define (DB_USER, 'root');
 define (DB_PASS, '');
 define (DB_SCHEMA, 'lol_notifications');
 
+// API rate limit
+//500 requests every 10 minutes
+//10 requests every 10 seconds

@@ -9,6 +9,7 @@ use Lolnot\Domain\CurrentGame\CurrentGameCollection;
 use Lolnot\Domain\Subscription\Subscription;
 use Lolnot\Infrastructure\Mailer\Mailer;
 use Lolnot\Infrastructure\Mailer\EmailMessage;
+use Lolnot\Domain\Champion\ChampionRepository;
 
 class NotifyUserWithCurrentGamesService implements ApplicationService
 {
@@ -27,6 +28,12 @@ class NotifyUserWithCurrentGamesService implements ApplicationService
     
     /**
      * 
+     * @var ChampionRepository
+     */
+    protected $championRepository;
+    
+    /**
+     * 
      * @var Mailer
      */
     protected $mailer;
@@ -34,10 +41,12 @@ class NotifyUserWithCurrentGamesService implements ApplicationService
     public function __construct(
         SubscriptionRepository $subscriptionRepository,
         CurrentGameRepository  $currentGameRepository,
+		ChampionRepository     $championRepository,
 		Mailer                 $mailer
     ) {
         $this->subscriptionRepository = $subscriptionRepository;
         $this->currentGameRepository  = $currentGameRepository;
+        $this->championRepository     = $championRepository;
         $this->mailer				  = $mailer;
     }
 
@@ -69,9 +78,10 @@ class NotifyUserWithCurrentGamesService implements ApplicationService
 
             // TODO move to view
             $participant = $currentGame->getParticipants()->filterBySummonerId($subscription->getSummonerId());
-
+			$championName = $this->championRepository->fetchNameById($participant->getChampionId());
+            
             $subject = "{$participant->getSummonerName()} in game #{$currentGame->getGameId()}";
-            $body = "El pavo esta jugando con {$participant->getChampionId()}";
+            $body = "El pavo esta jugando con {$championName}";
 
             $message = new EmailMessage(
             		$subscription->getUserEmail(),
