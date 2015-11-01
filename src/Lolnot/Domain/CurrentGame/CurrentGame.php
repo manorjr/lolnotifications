@@ -7,6 +7,7 @@ class CurrentGame
 	private $gameId;
 	private $gameLength;
 	private $gameMode;
+	private $gameStartTime;
 	
 	/**
 	 * 
@@ -33,7 +34,12 @@ class CurrentGame
 	{
 		return $this->participants;
 	}
-
+	
+	public function getGameStartTime()
+	{
+		return $this->gameStartTime;
+	}
+	
 	public function setGameId($gameId)
 	{
 		$this->gameId = $gameId;
@@ -51,6 +57,13 @@ class CurrentGame
 	public function setGameMode($gameMode)
 	{
 		$this->gameMode = $gameMode;
+		
+		return $this;
+	}
+	
+	public function setGameStartTime($startTime)
+	{
+		$this->gameStartTime = $startTime;
 		
 		return $this;
 	}
