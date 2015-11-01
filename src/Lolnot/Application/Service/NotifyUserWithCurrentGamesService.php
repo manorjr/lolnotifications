@@ -81,7 +81,7 @@ class NotifyUserWithCurrentGamesService implements ApplicationService
 			$championName = $this->championRepository->fetchNameById($participant->getChampionId());
             
             $subject = "{$participant->getSummonerName()} in game #{$currentGame->getGameId()}";
-            $body = "El pavo esta jugando con {$championName}";
+            $body = "El pavo esta jugando {$currentGame->getGameMode()} con {$championName}";
 
             $message = new EmailMessage(
             		$subscription->getUserEmail(),

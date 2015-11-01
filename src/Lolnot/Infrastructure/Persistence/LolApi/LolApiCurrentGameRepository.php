@@ -24,7 +24,8 @@ class LolApiCurrentGameRepository implements CurrentGameRepository
         // Map it to CurrentGame object.
         $currentGame = new CurrentGame();
         $currentGame->setGameId($currentGameInfo->gameId)
-        			->setGameLength($currentGameInfo->gameLength);
+        			->setGameLength($currentGameInfo->gameLength)
+        			->setGameMode($currentGameInfo->gameMode);
         
         $tmp = [];
         

@@ -6,6 +6,7 @@ class CurrentGame
 {
 	private $gameId;
 	private $gameLength;
+	private $gameMode;
 	
 	/**
 	 * 
@@ -23,6 +24,11 @@ class CurrentGame
 		return $this->gameLength;
 	}
 	
+	public function getGameMode()
+	{
+		return $this->gameMode;
+	}
+	
 	public function getParticipants()
 	{
 		return $this->participants;
@@ -38,6 +44,13 @@ class CurrentGame
 	public function setGameLength($gameLength)
 	{
 		$this->gameLength = $gameLength;
+		
+		return $this;
+	}
+	
+	public function setGameMode($gameMode)
+	{
+		$this->gameMode = $gameMode;
 		
 		return $this;
 	}
