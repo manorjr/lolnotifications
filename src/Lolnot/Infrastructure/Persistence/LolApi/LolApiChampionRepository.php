@@ -37,4 +37,9 @@ class LolApiChampionRepository implements ChampionRepository
 	{
 		throw new \Exception('Cant be implemented');
 	}
+	
+	public function fetchNameById($id)
+	{
+		throw new \Exception('Cant be implemented');
+	}
 }
