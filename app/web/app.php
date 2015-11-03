@@ -1,15 +1,31 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../../vendor/autoload.php';
 
 use Silex\Application;
-use Lolnot\Application\Service\SignUpUser;
 
 $app = new Application();
 
-$app->get('/', function () {
-    return 'Home page';
+var_dump($_SERVER);
+
+
+
+$app->get('/login', function () {
+	echo 'login done!';
+	exit;
 });
+	
+// /lolnotifications/app/web/app.php is the root directory
+$app->get('/', function () {
+	return require '/login.html';
+	exit;
+});
+	
+// Execute app!
+return $app->run();
+
+
+
 
 $app->post('/user/signup', function () {
     $service = new SignUpUser();
@@ -23,4 +39,5 @@ $app->post('/user/signup', function () {
         // TODO redirect to user page as logged or execute SignIn service for that.
     });
 
+var_dump('end');
 return $app;

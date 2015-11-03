@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /app.php?/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/lolnotifications/app/web/app.php$
+RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|js)$
+RewriteRule .* /lolnotifications/app/web/app.php [L,R=302]
